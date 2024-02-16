@@ -14,7 +14,7 @@ let database = null
 const initializeDbAndServer = async () => {
   try {
     database = await open({
-      filname: databasePath,
+      filename: databasePath,
       driver: sqlite3.Database,
     })
     app.listen(3000, () => {
@@ -70,7 +70,7 @@ app.get('/movies/:movieId', async (request, response) => {
   response.send(convertMovieDbObjectToResponseObject(movie))
 })
 
-app.post("/movies/". async (request, response) => {
+app.post("/movies/", async (request, response) => {
     const { directorId, movieName, leadActor} = request.body
     const postMovieQuery = `
         INSERT INTO
